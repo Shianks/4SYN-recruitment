@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4SYN Recruitment Form</title>
+    <style>
+        :root {
+            --primary-gold: #d4af37;
+            --accent-red: #8b0000;
+            --dark-bg: #121212;
+            --glass-bg: rgba(30, 30, 30, 0.85);
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://your-background-image-link.jpg'); /* Optional background */
+            background-size: cover;
+            background-attachment: fixed;
+            color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            max-width: 600px;
+            width: 100%;
+            padding: 40px;
+            border-radius: 15px;
+            border: 1px solid var(--primary-gold);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+        }
+
+        .logo-container {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .logo-container img {
+            max-width: 200px;
+            filter: drop-shadow(0 0 10px var(--accent-red));
+        }
+
+        h1 {
+            text-align: center;
+            color: var(--primary-gold);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: var(--primary-gold);
+        }
+
+        .description {
+            font-size: 0.85rem;
+            color: #aaa;
+            margin-bottom: 8px;
+        }
+
+        input[type="text"], 
+        input[type="number"], 
+        textarea, 
+        select {
+            width: 100%;
+            padding: 12px;
+            background: rgba(0,0,0,0.3);
+            border: 1px solid #444;
+            border-radius: 5px;
+            color: white;
+            box-sizing: border-box;
+            outline: none;
+            transition: border 0.3s;
+        }
+
+        input:focus, textarea:focus {
+            border-color: var(--primary-gold);
+        }
+
+        .radio-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .radio-option {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(45deg, var(--accent-red), #550000);
+            color: white;
+            border: 1px solid var(--primary-gold);
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        button:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 15px var(--accent-red);
+        }
+
+        .required-star { color: #ff4d4d; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="logo-container">
+        <img src="clan.jpg" alt="4SYN Logo">
+    </div>
+    
+    <h1>Clan Recruitment</h1>
+
+    <form id="recruitmentForm">
+        <div class="form-group">
+            <label>Why do you want to join our clan? <span class="required-star">*</span></label>
+            <textarea name="whyJoin" rows="4" required></textarea>
+        </div>
+
+        <div class="form-group">
+            <label>Have you been in a previous clan? <span class="required-star">*</span></label>
+            <div class="radio-group">
+                <label class="radio-option"><input type="radio" name="prevClan" value="Yes" required> Yes</label>
+                <label class="radio-option"><input type="radio" name="prevClan" value="No"> No</label>
+            </div>
+            <label style="margin-top:15px">If YES, why did you leave?</label>
+            <textarea name="whyLeft" rows="2"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label>In-Game Name (IGN) <span class="required-star">*</span></label>
+            <input type="text" name="ign" required>
+        </div>
+
+        <div class="form-group">
+            <label>Discord ID <span class="required-star">*</span></label>
+            <p class="description">Example: username or username#1234</p>
+            <input type="text" name="discordID" required>
+        </div>
+
+        <div class="form-group">
+            <label>Age <span class="required-star">*</span></label>
+            <input type="text" name="age" required>
+        </div>
+
+        <div class="form-group">
+            <label>Where are you from? <span class="required-star">*</span></label>
+            <p class="description">Country / City (optional)</p>
+            <input type="text" name="location" required>
+        </div>
+
+        <div class="form-group">
+            <label>Nationality <span class="required-star">*</span></label>
+            <input type="text" name="nationality" required>
+        </div>
+
+        <div class="form-group">
+            <label>Do you have basic English knowledge? <span class="required-star">*</span></label>
+            <div class="radio-group">
+                <label class="radio-option"><input type="radio" name="english" value="Yes" required> Yes</label>
+                <label class="radio-option"><input type="radio" name="english" value="No"> No</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Are you ready to change your name to include the 4SYN tag? <span class="required-star">*</span></label>
+            <div class="radio-group">
+                <label class="radio-option"><input type="radio" name="tagReady" value="Yes immediately" required> Yes, I can change it immediately</label>
+                <label class="radio-option"><input type="radio" name="tagReady" value="Needs time"> Yes, but I need time</label>
+            </div>
+            <label style="margin-top:15px">If you need time, how many days?</label>
+            <input type="text" name="timeNeeded">
+        </div>
+
+        <button type="submit" id="submitBtn">Submit Application</button>
+    </form>
+</div>
+
+<script>
+    const webhookURL = "https://discord.com/api/webhooks/1454879705768525865/zsvUUI2W1wteTuVcQBf077wzxMhrLgByTAA525-l-O-9pRHKzT0RMI1J2RMmrLRuQ7Os";
+
+    document.getElementById('recruitmentForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const btn = document.getElementById('submitBtn');
+        btn.innerText = "Sending...";
+        btn.disabled = true;
+
+        const formData = new FormData(this);
+        let content = "**New Clan Application for 4SYN**\n\n";
+        
+        formData.forEach((value, key) => {
+            if(value) {
+                content += `**${key}:** ${value}\n`;
+            }
+        });
+
+        const params = {
+            username: "4SYN Recruitment Bot",
+            avatar_url: "", // Link to your logo if you want it on the bot
+            content: content
+        };
+
+        fetch(webhookURL, {
+            method: "POST",
+            headers: { 'Content-type': 'application/json' },
+            body: JSON.stringify(params)
+        }).then(res => {
+            alert("Thank you for applying to 4SYN. Qualified applicants will be contacted via Discord.");
+            location.reload();
+        }).catch(err => {
+            alert("Error sending application. Please try again.");
+            btn.disabled = false;
+            btn.innerText = "Submit Application";
+        });
+    });
+</script>
+
+</body>
+</html>
