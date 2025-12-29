@@ -10,7 +10,7 @@
             --gold-glow: rgba(212, 175, 55, 0.4);
             --accent-red: #8b0000;
             --dark-bg: #0a0a0a;
-            --glass: rgba(20, 20, 20, 0.8);
+            --glass: rgba(20, 20, 20, 0.9);
         }
 
         body {
@@ -83,8 +83,8 @@
         input[type="text"], textarea, select {
             width: 100%;
             padding: 14px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(212, 175, 55, 0.2);
+            background: rgba(30, 30, 30, 0.9);
+            border: 1px solid rgba(212, 175, 55, 0.3);
             border-radius: 8px;
             color: white;
             box-sizing: border-box;
@@ -92,10 +92,17 @@
             font-size: 1rem;
         }
 
+        /* Fix for Dropdown Option Visibility */
+        select option {
+            background-color: #1a1a1a;
+            color: #ffffff;
+            padding: 10px;
+        }
+
         input:focus, textarea:focus, select:focus {
             outline: none;
             border-color: var(--primary-gold);
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(40, 40, 40, 1);
             box-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
         }
 
@@ -113,6 +120,9 @@
             text-align: center;
             cursor: pointer;
             transition: 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .platform-card:hover {
@@ -121,7 +131,7 @@
 
         input[type="radio"] {
             accent-color: var(--primary-gold);
-            margin-right: 8px;
+            margin-right: 10px;
         }
 
         button {
@@ -137,8 +147,6 @@
             text-transform: uppercase;
             letter-spacing: 2px;
             transition: 0.4s;
-            position: relative;
-            z-index: 1;
         }
 
         button:hover {
@@ -147,10 +155,6 @@
             box-shadow: 0 0 20px var(--primary-gold);
         }
 
-        .required-star { color: #ff4d4d; margin-left: 3px; }
-        
-        ::placeholder { color: rgba(255, 255, 255, 0.3); }
-
         .footer-text {
             text-align: center;
             color: rgba(255,255,255,0.4);
@@ -158,6 +162,8 @@
             margin-top: 30px;
             letter-spacing: 1px;
         }
+
+        .required-star { color: #ff4d4d; margin-left: 3px; }
     </style>
 </head>
 <body>
@@ -203,7 +209,7 @@
         <div class="form-group">
             <label>Working Microphone? <span class="required-star">*</span></label>
             <select id="hasMic" required>
-                <option value="">Choose...</option>
+                <option value="" disabled selected>Choose an option...</option>
                 <option value="Yes">Yes</option>
                 <option value="No">No</option>
                 <option value="Listen Only">I can listen only</option>
@@ -223,7 +229,7 @@
         <div class="form-group">
             <label>Ready for 4SYN tag? <span class="required-star">*</span></label>
             <select id="tagReady" required>
-                <option value="">Choose...</option>
+                <option value="" disabled selected>Choose an option...</option>
                 <option value="Immediately">Yes, immediately</option>
                 <option value="Needs time">I need a few days</option>
             </select>
@@ -236,7 +242,7 @@
 </div>
 
 <script>
-    // Remember to update your Webhook URL if you reset it!
+    // Note: Update this if you reset your Discord Webhook
     const webhookURL = "https://discord.com/api/webhooks/1454879705768525865/zsvUUI2W1wteTuVcQBf077wzxMhrLgByTAA525-l-O-9pRHKzT0RMI1J2RMmrLRuQ7Os";
 
     document.getElementById('recruitmentForm').addEventListener('submit', function(e) {
@@ -263,7 +269,7 @@
             username: "4SYN Recruitment Bot",
             embeds: [{
                 title: "📜 NEW RECRUITMENT APPLICATION",
-                color: 13936183, // Gold color
+                color: 13936183, 
                 fields: [
                     { name: "👤 IGN", value: data.ign, inline: true },
                     { name: "🎮 Platform", value: data.platform, inline: true },
@@ -288,7 +294,7 @@
             alert("Application Sent Successfully! Good luck.");
             location.reload();
         }).catch(err => {
-            alert("Submission failed. Check connection.");
+            alert("Submission failed. Check your internet or webhook URL.");
             btn.disabled = false;
             btn.innerText = "Submit Application";
         });
