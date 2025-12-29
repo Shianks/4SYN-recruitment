@@ -1,161 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>4SYN Recruitment</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4SYN Recruitment Form</title>
+    <style>
+        :root {
+            --primary-gold: #d4af37;
+            --accent-red: #8b0000;
+            --dark-bg: #121212;
+            --glass-bg: rgba(30, 30, 30, 0.85);
+        }
 
-<style>
-:root {
-    --fire-gold: #d9a441;
-    --ember: #ff6a00;
-    --deep-red: #7a0f0f;
-    --dark-smoke: #0b0b0b;
-    --panel-bg: rgba(10, 10, 10, 0.92);
-}
+        body {
+            background-color: var(--dark-bg);
+            color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
 
-body {
-    background:
-        radial-gradient(circle at top, rgba(255,106,0,0.15), transparent 60%),
-        var(--dark-smoke);
-    color: #f5f5f5;
-    font-family: 'Segoe UI', sans-serif;
-    margin: 0;
-    padding: 40px 15px;
-    display: flex;
-    justify-content: center;
-}
+        .container {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            max-width: 600px;
+            width: 100%;
+            padding: 40px;
+            border-radius: 15px;
+            border: 1px solid var(--primary-gold);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+        }
 
-.container {
-    max-width: 650px;
-    width: 100%;
-    background: var(--panel-bg);
-    padding: 45px;
-    border-radius: 20px;
-    position: relative;
-    border: 2px solid var(--fire-gold);
-    box-shadow:
-        0 0 25px rgba(255, 106, 0, 0.25),
-        inset 0 0 40px rgba(255, 106, 0, 0.08);
-}
+        .logo-container {
+            text-align: center;
+            margin-bottom: 30px;
+        }
 
-.container::before {
-    content: "";
-    position: absolute;
-    inset: -8px;
-    border-radius: 25px;
-    background: linear-gradient(45deg, transparent, var(--ember), transparent);
-    opacity: 0.35;
-    z-index: -1;
-}
+        .logo-container img {
+            max-width: 200px;
+            filter: drop-shadow(0 0 10px var(--accent-red));
+        }
 
-.logo-container {
-    text-align: center;
-    margin-bottom: 25px;
-}
+        h1 {
+            text-align: center;
+            color: var(--primary-gold);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+        }
 
-.logo-container img {
-    max-width: 230px;
-    filter:
-        drop-shadow(0 0 25px rgba(255,106,0,0.8))
-        drop-shadow(0 0 40px rgba(255,0,0,0.6));
-}
+        .form-group {
+            margin-bottom: 25px;
+        }
 
-h1 {
-    text-align: center;
-    font-size: 2rem;
-    color: var(--fire-gold);
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    margin-bottom: 35px;
-    text-shadow: 0 0 15px rgba(255,106,0,0.6);
-}
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: var(--primary-gold);
+        }
 
-.form-group {
-    margin-bottom: 26px;
-}
+        .description {
+            font-size: 0.85rem;
+            color: #aaa;
+            margin-bottom: 8px;
+        }
 
-label {
-    display: block;
-    margin-bottom: 6px;
-    font-weight: bold;
-    color: var(--fire-gold);
-}
+        input[type="text"], textarea, select {
+            width: 100%;
+            padding: 12px;
+            background: rgba(0,0,0,0.3);
+            border: 1px solid #444;
+            border-radius: 5px;
+            color: white;
+            box-sizing: border-box;
+            outline: none;
+        }
 
-.description {
-    font-size: 0.85rem;
-    color: #aaa;
-    margin-bottom: 8px;
-}
+        input:focus, textarea:focus { border-color: var(--primary-gold); }
 
-input, textarea, select {
-    width: 100%;
-    padding: 13px;
-    background: rgba(0, 0, 0, 0.55);
-    border: 1px solid #5a3b1e;
-    border-radius: 6px;
-    color: #fff;
-    outline: none;
-    box-sizing: border-box;
-}
+        .radio-group { display: flex; flex-direction: column; gap: 10px; }
+        .radio-option { display: flex; align-items: center; gap: 10px; cursor: pointer; }
 
-input::placeholder {
-    color: #777;
-}
+        button {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(45deg, var(--accent-red), #550000);
+            color: white;
+            border: 1px solid var(--primary-gold);
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
 
-input:focus,
-textarea:focus,
-select:focus {
-    border-color: var(--ember);
-    box-shadow: 0 0 12px rgba(255,106,0,0.6);
-}
-
-.required-star {
-    color: #ff3c3c;
-}
-
-button {
-    width: 100%;
-    padding: 16px;
-    margin-top: 20px;
-    font-size: 1.1rem;
-    letter-spacing: 2px;
-    background: linear-gradient(180deg, #ff9a2f, #b12a00);
-    color: #fff;
-    border: 2px solid var(--fire-gold);
-    border-radius: 8px;
-    cursor: pointer;
-    text-transform: uppercase;
-    box-shadow:
-        0 0 20px rgba(255,106,0,0.8),
-        inset 0 0 10px rgba(255,255,255,0.2);
-}
-
-button:hover {
-    box-shadow:
-        0 0 35px rgba(255,106,0,1),
-        inset 0 0 15px rgba(255,255,255,0.3);
-    transform: translateY(-1px);
-}
-
-button:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
-}
-</style>
+        .required-star { color: #ff4d4d; }
+    </style>
 </head>
-
 <body>
 
 <div class="container">
     <div class="logo-container">
         <img src="clan.jpg" alt="4SYN Logo">
     </div>
-
-    <h1>Clan Recruitment</h1>
+    
+    <h1>4SYN Recruitment</h1>
 
     <form id="recruitmentForm">
-
         <div class="form-group">
             <label>Why do you want to join our clan? <span class="required-star">*</span></label>
             <textarea id="whyJoin" rows="4" required></textarea>
@@ -164,11 +117,11 @@ button:disabled {
         <div class="form-group">
             <label>Have you been in a previous clan? <span class="required-star">*</span></label>
             <select id="prevClan" required>
-                <option value="">Select</option>
+                <option value="">Select an option</option>
                 <option value="Yes">Yes</option>
                 <option value="No">No</option>
             </select>
-            <label style="margin-top:12px">If YES, why did you leave?</label>
+            <label style="margin-top:15px">If YES, why did you leave?</label>
             <textarea id="whyLeft" rows="2"></textarea>
         </div>
 
@@ -184,12 +137,12 @@ button:disabled {
         </div>
 
         <div class="form-group">
-            <label>Do you have a working microphone? <span class="required-star">*</span></label>
+            <label>Do you have a working Microphone? <span class="required-star">*</span></label>
             <select id="hasMic" required>
-                <option value="">Select</option>
+                <option value="">Select an option</option>
                 <option value="Yes">Yes</option>
                 <option value="No">No</option>
-                <option value="Listen only">Listen only</option>
+                <option value="Only for listening">I can listen but not speak</option>
             </select>
         </div>
 
@@ -211,7 +164,7 @@ button:disabled {
         <div class="form-group">
             <label>Do you have basic English knowledge? <span class="required-star">*</span></label>
             <select id="english" required>
-                <option value="">Select</option>
+                <option value="">Select an option</option>
                 <option value="Yes">Yes</option>
                 <option value="No">No</option>
             </select>
@@ -220,82 +173,83 @@ button:disabled {
         <div class="form-group">
             <label>Are you ready to include the 4SYN tag? <span class="required-star">*</span></label>
             <select id="tagReady" required>
-                <option value="">Select</option>
-                <option value="Yes, immediately">Yes, immediately</option>
-                <option value="Needs time">I need time</option>
+                <option value="">Select an option</option>
+                <option value="Yes, immediately">Yes, I can change it immediately</option>
+                <option value="Needs time">Yes, but I need time</option>
             </select>
-            <label style="margin-top:12px">If you need time, how many days?</label>
+            <label style="margin-top:15px">If you need time, how many days?</label>
             <input type="text" id="timeNeeded">
         </div>
 
-        <button type="submit" id="submitBtn">SUBMIT TO 4SYN</button>
+        <button type="submit" id="submitBtn">Submit Application</button>
     </form>
-
-    <p style="text-align:center;color:#aaa;margin-top:20px;">
-        Qualified applicants will be contacted via Discord.
-    </p>
+    <p style="text-align: center; color: #aaa; margin-top: 20px;">Qualified applicants will be contacted via Discord.</p>
 </div>
 
 <script>
-const webhookURL = "https://discord.com/api/webhooks/1454879705768525865/zsvUUI2W1wteTuVcQBf077wzxMhrLgByTAA525-l-O-9pRHKzT0RMI1J2RMmrLRuQ7Os";
+    // PASTE YOUR DISCORD WEBHOOK URL BELOW
+    const webhookURL = "https://discord.com/api/webhooks/1454879705768525865/zsvUUI2W1wteTuVcQBf077wzxMhrLgByTAA525-l-O-9pRHKzT0RMI1J2RMmrLRuQ7Os";
 
-document.getElementById('recruitmentForm').addEventListener('submit', function(e) {
-    e.preventDefault();
+    document.getElementById('recruitmentForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const btn = document.getElementById('submitBtn');
+        btn.innerText = "Sending...";
+        btn.disabled = true;
 
-    const btn = document.getElementById('submitBtn');
-    btn.innerText = "SENDING...";
-    btn.disabled = true;
+        // Collect values
+        const data = {
+            why: document.getElementById('whyJoin').value,
+            prev: document.getElementById('prevClan').value,
+            left: document.getElementById('whyLeft').value || "N/A",
+            ign: document.getElementById('ign').value,
+            discord: document.getElementById('discordID').value,
+            mic: document.getElementById('hasMic').value,
+            age: document.getElementById('age').value,
+            loc: document.getElementById('location').value,
+            nat: document.getElementById('nationality').value,
+            eng: document.getElementById('english').value,
+            tag: document.getElementById('tagReady').value,
+            days: document.getElementById('timeNeeded').value || "N/A"
+        };
 
-    const data = {
-        ign: ign.value,
-        discord: discordID.value,
-        mic: hasMic.value,
-        age: age.value,
-        loc: location.value,
-        nat: nationality.value,
-        eng: english.value,
-        prev: prevClan.value,
-        left: whyLeft.value || "N/A",
-        why: whyJoin.value,
-        tag: tagReady.value,
-        days: timeNeeded.value || "N/A"
-    };
-
-    fetch(webhookURL, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
+        // Create Discord Embed
+        const params = {
             username: "4SYN Recruitment Bot",
             embeds: [{
-                title: "🔥 New 4SYN Application",
-                color: 16737792,
+                title: "New Recruitment Application",
+                color: 13900032, // Gold/Red color
                 fields: [
                     { name: "IGN", value: data.ign, inline: true },
                     { name: "Discord", value: data.discord, inline: true },
-                    { name: "Mic", value: data.mic, inline: true },
+                    { name: "Mic?", value: data.mic, inline: true },
                     { name: "Age", value: data.age, inline: true },
                     { name: "From", value: data.loc, inline: true },
                     { name: "Nationality", value: data.nat, inline: true },
-                    { name: "English", value: data.eng, inline: true },
-                    { name: "Previous Clan", value: data.prev, inline: true },
-                    { name: "Why Left", value: data.left },
-                    { name: "Why Join", value: data.why },
-                    { name: "Tag Ready", value: data.tag, inline: true },
-                    { name: "Days Needed", value: data.days, inline: true }
+                    { name: "English?", value: data.eng, inline: true },
+                    { name: "Previous Clan?", value: data.prev, inline: true },
+                    { name: "Reason for leaving", value: data.left },
+                    { name: "Why join 4SYN?", value: data.why },
+                    { name: "Tag Change?", value: data.tag, inline: true },
+                    { name: "Days needed", value: data.days, inline: true }
                 ],
-                footer: { text: "4SYN Clan Recruitment System" },
+                footer: { text: "4SYN Clan Application System" },
                 timestamp: new Date()
             }]
-        })
-    }).then(() => {
-        alert("🔥 Application sent! Welcome to 4SYN.");
-        location.reload();
-    }).catch(() => {
-        alert("❌ Error sending application.");
-        btn.disabled = false;
-        btn.innerText = "SUBMIT TO 4SYN";
+        };
+
+        fetch(webhookURL, {
+            method: "POST",
+            headers: { 'Content-type': 'application/json' },
+            body: JSON.stringify(params)
+        }).then(res => {
+            alert("Thank you for applying to 4SYN! We will contact you soon.");
+            location.reload();
+        }).catch(err => {
+            alert("Error! Check your webhook URL.");
+            btn.disabled = false;
+            btn.innerText = "Submit Application";
+        });
     });
-});
 </script>
 
 </body>
