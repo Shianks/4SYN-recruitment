@@ -85,10 +85,9 @@
             font-size: 1rem;
         }
 
-        /* FIX: Dropdown Menu Options Styling */
         select option {
-            background-color: #0f0f0f !important; /* Solid black/dark background */
-            color: var(--primary-gold) !important; /* Gold text for visibility */
+            background-color: #0f0f0f !important;
+            color: var(--primary-gold) !important;
             padding: 12px;
         }
 
@@ -99,13 +98,13 @@
             box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
         }
 
-        .platform-options {
+        .option-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 15px;
         }
 
-        .platform-card {
+        .option-card {
             background: rgba(255, 255, 255, 0.03);
             border: 1px solid rgba(255, 255, 255, 0.1);
             padding: 12px;
@@ -118,7 +117,7 @@
             justify-content: center;
         }
 
-        .platform-card:hover {
+        .option-card:hover {
             border-color: var(--primary-gold);
             background: rgba(212, 175, 55, 0.05);
         }
@@ -176,12 +175,24 @@
         </div>
 
         <div class="form-group">
+            <label>Playstyle <span class="required-star">*</span></label>
+            <div class="option-grid">
+                <label class="option-card">
+                    <input type="radio" name="playstyle" value="Competitive" required> Competitive
+                </label>
+                <label class="option-card">
+                    <input type="radio" name="playstyle" value="Casual"> Casual
+                </label>
+            </div>
+        </div>
+
+        <div class="form-group">
             <label>Platform <span class="required-star">*</span></label>
-            <div class="platform-options">
-                <label class="platform-card">
+            <div class="option-grid">
+                <label class="option-card">
                     <input type="radio" name="platform" value="PC" required> PC
                 </label>
-                <label class="platform-card">
+                <label class="option-card">
                     <input type="radio" name="platform" value="Mobile"> Mobile
                 </label>
             </div>
@@ -245,10 +256,12 @@
         btn.disabled = true;
 
         const platformValue = document.querySelector('input[name="platform"]:checked').value;
+        const playstyleValue = document.querySelector('input[name="playstyle"]:checked').value;
 
         const data = {
             ign: document.getElementById('ign').value,
             platform: platformValue,
+            playstyle: playstyleValue,
             discord: document.getElementById('discordID').value,
             age: document.getElementById('age').value,
             nat: document.getElementById('nationality').value,
@@ -265,6 +278,7 @@
                 color: 13936183, 
                 fields: [
                     { name: "👤 IGN", value: data.ign, inline: true },
+                    { name: "⚔️ Playstyle", value: data.playstyle, inline: true },
                     { name: "🎮 Platform", value: data.platform, inline: true },
                     { name: "🆔 Discord", value: data.discord, inline: true },
                     { name: "🎂 Age", value: data.age, inline: true },
