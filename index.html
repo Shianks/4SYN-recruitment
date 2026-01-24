@@ -169,8 +169,11 @@
 
     <form id="recruitmentForm">
         <div class="form-group">
-            <label>In-Game Name (IGN) <span class="required-star">*</span></label>
-            <input type="text" id="ign" placeholder="Your name in-game" required>
+            <label>In-Game Name & UID <span class="required-star">*</span></label>
+            <div style="display: flex; gap: 10px;">
+                <input type="text" id="ign" placeholder="IGN" style="width: 50%;" required>
+                <input type="text" id="uid" placeholder="Game UID" style="width: 50%;" required>
+            </div>
         </div>
 
         <div class="form-group">
@@ -259,9 +262,10 @@
 
         const data = {
             ign: document.getElementById('ign').value,
+            uid: document.getElementById('uid').value,
             platform: platformValue,
             playstyle: playstyleValue,
-            discord: document.getElementById('discordUser').value, // Updated ID to discordUser
+            discord: document.getElementById('discordUser').value,
             age: document.getElementById('age').value,
             nat: document.getElementById('nationality').value,
             mic: document.getElementById('hasMic').value,
@@ -277,9 +281,10 @@
                 color: 13936183, 
                 fields: [
                     { name: "👤 IGN", value: data.ign, inline: true },
+                    { name: "🆔 Game UID", value: data.uid, inline: true },
                     { name: "⚔️ Playstyle", value: data.playstyle, inline: true },
                     { name: "🎮 Platform", value: data.platform, inline: true },
-                    { name: "🆔 Discord Username", value: data.discord, inline: true },
+                    { name: "💬 Discord Username", value: data.discord, inline: true },
                     { name: "🎂 Age", value: data.age, inline: true },
                     { name: "🌍 Nationality", value: data.nat, inline: true },
                     { name: "🎙️ Microphone", value: data.mic, inline: true },
