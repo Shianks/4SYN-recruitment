@@ -72,7 +72,6 @@
             color: var(--primary-gold);
         }
 
-        /* Input Styling */
         input[type="text"], textarea, select {
             width: 100%;
             padding: 14px;
@@ -199,8 +198,8 @@
         </div>
 
         <div class="form-group">
-            <label>Discord ID <span class="required-star">*</span></label>
-            <input type="text" id="discordID" placeholder="username#0000" required>
+            <label>Discord Username <span class="required-star">*</span></label>
+            <input type="text" id="discordUser" placeholder="e.g. username" required>
         </div>
 
         <div class="form-group">
@@ -262,7 +261,7 @@
             ign: document.getElementById('ign').value,
             platform: platformValue,
             playstyle: playstyleValue,
-            discord: document.getElementById('discordID').value,
+            discord: document.getElementById('discordUser').value, // Updated ID to discordUser
             age: document.getElementById('age').value,
             nat: document.getElementById('nationality').value,
             mic: document.getElementById('hasMic').value,
@@ -280,7 +279,7 @@
                     { name: "👤 IGN", value: data.ign, inline: true },
                     { name: "⚔️ Playstyle", value: data.playstyle, inline: true },
                     { name: "🎮 Platform", value: data.platform, inline: true },
-                    { name: "🆔 Discord", value: data.discord, inline: true },
+                    { name: "🆔 Discord Username", value: data.discord, inline: true },
                     { name: "🎂 Age", value: data.age, inline: true },
                     { name: "🌍 Nationality", value: data.nat, inline: true },
                     { name: "🎙️ Microphone", value: data.mic, inline: true },
